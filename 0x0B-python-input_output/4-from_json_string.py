@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""
-Contains the function "append_wrtie"
-"""
+"""Write a function that returns the obj representation of
+a json"""
+import json
 
 
-def append_write(filename="", text=""):
-    """returns the number of chars appended to "filename" from "text" """
-    with open(filename, 'a', encoding='utf=8') as f:
-        return f.write(text)
+def from_json_string(my_str):
+    """loads obj from json"""
+    return json.loads(my_str)
