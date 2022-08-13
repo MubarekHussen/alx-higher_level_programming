@@ -3,7 +3,6 @@
 SELECT 
     score, 
     COUNT(score)
-FROM
+AS number FROM
     second_table
-GROUP BY number
-HAVING COUNT(score) > 1;
+GROUP BY score ORDER BY number DESC;
