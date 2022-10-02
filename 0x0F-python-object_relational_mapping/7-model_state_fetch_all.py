@@ -1,12 +1,14 @@
 #!/usr/bin/python3
-""" lists all state objects from hbtn_0e_6_usa"""
-
+"""Lists all State objects from the database hbtn_0e_6_usa.
+Usage: ./7-model_state_fetch_all.py <mysql username> /
+                                    <mysql password> /
+                                    <database name>
+"""
 
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import State
-
 
 if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
@@ -14,5 +16,6 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
     session = Session()
+
     for state in session.query(State).order_by(State.id):
         print("{}: {}".format(state.id, state.name))
